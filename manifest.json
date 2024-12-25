@@ -3,11 +3,19 @@
     "name": "My First Extension",
     "version": "1.0",
     "description": "This is a basic Chrome extension.",
-    "permissions": ["storage", "activeTab", "scripting"],
+    "permissions": ["storage", "activeTab", "scripting", "tabs"],
     "host_permissions": ["<all_urls>"],
     "action": {
-      "default_popup": "popup.html",
       "default_icon": "icon.png"
-    }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["local_page.html"],
+            "matches": ["<all_urls>"]
+        }
+    ]
   }
   
